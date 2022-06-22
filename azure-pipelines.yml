@@ -23,6 +23,7 @@ steps:
 
 - task: AzureKeyVault@2
   inputs:
+    azureSubscription: 'Lab13'
     KeyVaultName: 'lab-key-vault853'
     SecretsFilter: '*'
     RunAsPreJob: false
