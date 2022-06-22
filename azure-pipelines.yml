@@ -20,3 +20,17 @@ steps:
     npm run build
     npm test
   displayName: 'npm install, build, and test'
+
+- task: AzureKeyVault@2
+  inputs:
+    KeyVaultName: 'lab-key-vault853'
+    SecretsFilter: '*'
+    RunAsPreJob: false
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      
+      Write-Host "Password for sqldbpassword-"$(sqldbpassword)
